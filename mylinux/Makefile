@@ -30,10 +30,10 @@ boot/bootsect.s: boot/bootsect.S
 	$(CC) $(INCLUDE) -E $< -o $@
 
 qemu:
-	qemu-system-i386 -M pc -drive file=build/os.bin,format=raw
+	qemu-system-i386 -M pc -drive file=build/os.bin,index=0,if=floppy,format=raw
 
 debug: all
-	qemu-system-i386 -M pc -drive file=build/os.bin,format=raw -S -s
+	qemu-system-i386 -M pc -drive file=build/os.bin,index=0,if=floppy,format=raw -S -s
 
 clean:
 	rm -rf build boot/bootsect.s
